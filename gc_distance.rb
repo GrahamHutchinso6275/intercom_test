@@ -3,12 +3,14 @@ require 'json'
 # Main function
 
 def close_customers(address, lon, lat, r)
+  file = File.open('output.txt', 'w')
   data = load_JSON(address)
-  data.each do |line|
+  sorted_data =  data.sort_by{|k| k["user_id"]}
+  sorted_data.each do |line|
     dist = distance(deg_to_rad(line["longitude"].to_f), deg_to_rad(line["latitude"].to_f), deg_to_rad(lon), deg_to_rad(lat), r)
-    line.class
     if dist < 100
-      
+      file.write(line)
+      file.write("\n")
     end
   end
 end
