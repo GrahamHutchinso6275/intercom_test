@@ -5,17 +5,19 @@ require 'json'
 def close_customers(address, lon, lat, r)
   file = File.open('output.txt', 'w')
   data = load_JSON(address)
-  sorted_data =  data.sort_by{|k| k["user_id"]}
+  sorted_data = data.sort_by{|k| k["user_id"]}
   sorted_data.each do |line|
     dist = distance(deg_to_rad(line["longitude"].to_f), deg_to_rad(line["latitude"].to_f), deg_to_rad(lon), deg_to_rad(lat), r)
     if dist < 100
-      file.write(line)
-      file.write("\n")
+      # puts "name: #{line["name"]}, id: #{line["user_id"]}\n"
+      file.write("name: #{line["name"]}, id: #{line["user_id"]}\n")
     end
   end
+  file.close
 end
 
 # Load JSON
+
 def load_JSON(addr)
   items = File.open(addr, 'r').each_line.map { |l| JSON.parse(l) }
   items
