@@ -9,7 +9,6 @@ def close_customers(address, lon, lat, r)
   sorted_data.each do |line|
     dist = distance(deg_to_rad(line["longitude"].to_f), deg_to_rad(line["latitude"].to_f), deg_to_rad(lon), deg_to_rad(lat), r)
     if dist < 100
-      # puts "name: #{line["name"]}, id: #{line["user_id"]}\n"
       file.write("name: #{line["name"]}, id: #{line["user_id"]}\n")
     end
   end
@@ -44,4 +43,3 @@ def radicand(lon1, lat1, lon2, lat2)
 end
 
 close_customers('customers.txt',-6.257664, 53.339428,6371)
-
