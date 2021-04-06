@@ -5,7 +5,7 @@
 ### To run
 First, clone this repo. Next, you'll need to install Ruby.
 If you need help on how to do this, follow the [documentation](https://www.ruby-lang.org/en/documentation/installation/).
-After installing Ruby, you'll need to install the json gem
+After installing Ruby, you'll need to install the json and test helper gem
 
 ``gem install json``
 
