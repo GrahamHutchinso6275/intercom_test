@@ -17,7 +17,7 @@ The following command runs the program
 
 ``ruby gc_distance.rb``
 
-And the command runs the test suite
+And this command runs the test suite
 
 ``ruby gc_distance_test.rb``
 
